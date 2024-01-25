@@ -1,11 +1,16 @@
 #!/bin/bash
 
 file=""
+verbose=false
 
-while getopts 'f:' OPTION; do
+while getopts 'f:v' OPTION; do
   case "$OPTION" in
     f)
       file=$OPTARG
+      ;;
+
+    v)
+      verbose=true
       ;;
     ?)
       echo "script usage: "$0" [-f name of file to compile and execute]" >&2
@@ -16,7 +21,6 @@ done
 
 shift "$(($OPTIND -1))"
 
-
 pattern="\/*\w+\.c"
 file_dir="$(sed -E "s/$pattern//" <<< $file)"
 
@@ -25,9 +29,11 @@ mkdir -p "out/$file_dir"
 file_name_without_extension="${file%%.*}"
 file_dir_exe_out="out/$file_name_without_extension.out"
 
-printf "\n###########################################\n\n"
-echo "Creating .out file at $file_dir_exe_out..."
-printf "\n###########################################\n\n"
+
+if [ "$verbose" = true ]; 
+then printf "\n###########################################\n\n Creating .out file at $file_dir_exe_out... \n\n###########################################\n\n"
+
+fi
 
 
 gcc "$file" -o "$file_dir_exe_out" # using `gcc` command to compile .c file
