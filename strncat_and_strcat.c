@@ -36,7 +36,7 @@ int main(void)
  printf("%s\n", n);
 
  //
- // **** strcat() is less secure as it does not check the size
+ // **** strcat() is less secure as it does not check the size - may cause buffer overflow
  //
 
  // strcat()
