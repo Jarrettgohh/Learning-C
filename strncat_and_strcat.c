@@ -37,6 +37,7 @@ int main(void)
 
  //
  // **** strcat() is less secure as it does not check the size - may cause buffer overflow
+ // ==> strcat() does not check for the size of the copied data, and copies until it gets to a null terminator
  //
 
  // strcat()
