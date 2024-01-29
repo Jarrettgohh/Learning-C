@@ -1,0 +1,16 @@
+1. using gdb commmand on the .c file name opens up pwndbg if its installed
+2. basic assembly commands to use in pwndbg -> cmp, jmp, disass, eax, etc...
+3. source code for .c file in github -> "cloudhacks-bof
+4. important register to overwrite -> EIP
+
+STEPS in BOF
+1. overwrite buffer
+2. place memory address of intended function in the EIP -> placing the address at the end of the buffer
+3. bad characters
+4. shellcode -> return to smth
+
+Useful pwndbg commands
+1. Info function -> shows all functions within the binary
+2. disass -> disassemble function
+3. b *<memory address> -> add a breakppoint
+4. x/<how many rows>x<register name><memory address> -> display memory content
