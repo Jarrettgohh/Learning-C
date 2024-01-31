@@ -9,7 +9,7 @@ void fn_2(int i)
 }
 
 // fn: A function accepting int and void (*)(int) as argument, and returns a pointer to a function - the return function (fn_2) accepts int as argument and returns void
-void (*fn(int a, void (*b)(int)))(int)
+void (*fn_ret_fn_pointer_1(int a, void (*b)(int)))(int)
 {
 
  // ptr: pointer to a function accepting int as argument and returns void
@@ -28,17 +28,25 @@ int main()
  typedef void fv(int), (*pfv)(int);
 
  ///
- // fv *fn(int, fv *);
- // fv *fn(int, void (*)(int));
- // void (*fn(int, void (*)(int)))(int);
+ // fn: A function accepting int and void (*)(int) as argument, and returns a pointer to a function that accepts int as argument and returns void
 
- void (*fn(int, void(int)))(int);
+ fv *fn_ret_fn_pointer(int, fv *);
+ fv *fn_ret_fn_pointer(int, void (*)(int));
+ void (*fn_ret_fn_pointer(int, void (*)(int)))(int);
+
+ pfv fn_ret_fn_pointer(int, pfv);
+ pfv fn_ret_fn_pointer(int, void (*)(int));
+ void (*fn_ret_fn_pointer(int, void (*)(int)))(int);
+
  ///
 
  // directly dereferencing the return value from the `fn` function and calling it
- (*fn(6, fn_2))(22);
+ (*fn_ret_fn_pointer_1(6, &fn_2))(22);
 
- // pfv fn(int, pfv);
+ // same as directly dereferencing as shown above
+ void (*ptr)(int) = fn_ret_fn_pointer_1(6, &fn_2);
+ (*ptr)(22);
+ //
 
  return 0;
 }
