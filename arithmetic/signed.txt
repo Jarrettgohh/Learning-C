@@ -1,0 +1,9 @@
+=================
+signed data types give the most significant bit a negative value (known as sign bit)
+-> eg. for 2's complement, the sign bit is give the weight -(2^(N-1)) and the otehr value bits have the same weight as unsigned
+
+eg. a 8-bit representation of a signed int 
+
+|   Binary    |          Decimal              |
+  1000 0000               128 (-(2^(8-1)))
+  1000 0001               -127 (-(2^(8-1)) + 1)
