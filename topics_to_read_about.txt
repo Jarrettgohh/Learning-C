@@ -1,0 +1,2 @@
+1. How float and double data types are stored in memory
+-> the sign, exponent and significand bits

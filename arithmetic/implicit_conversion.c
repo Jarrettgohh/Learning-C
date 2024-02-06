@@ -14,8 +14,8 @@ int main()
  }
 
  printf("%u\n", ui);
- printf("%u\n", c);  // signed variable as what its declared with before not able to store negative values, hence the wraparound
- printf("%u\n", si); // signed variable as what its declared with before not able to store negative values, hence the wraparound
+ printf("%u\n", c);  // originally a signed variable that is not able to store negative values, hence the wraparound
+ printf("%u\n", si); // originally a signed variable that is not able to store negative values, hence the wraparound
 
  return 0;
 }

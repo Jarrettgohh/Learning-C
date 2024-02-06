@@ -4,7 +4,9 @@ file=""
 verbose=false
 std="c17"
 
-while getopts 'f:vs:' OPTION; do
+
+# the colon (:) operator in the getopts argument indicates whether or not the flag takes in an argument
+while getopts 'f:vs:h' OPTION; do
   case "$OPTION" in
     f)
       file=$OPTARG
@@ -17,12 +19,22 @@ while getopts 'f:vs:' OPTION; do
     s)
       std=$OPTARG
       ;;
+
+    h)
+      printf "\n [-f] Name of C file to compile and execute (using gcc)"
+      printf "\n [-v] Enable verbose"
+      printf "\n [-s] Version of C standard"
+      printf "\n\n"
+      exit
+      ;;
     ?)
-      echo "script usage: "$0" [-f name of file to compile and execute -s version of standard C language -v to enable verbosity]" >&2
+      echo "script usage: "$0" -f ... -s ... -v ... (Run the file with the -h flag to view the help menu)]" >&2
       exit 1
       ;;
   esac
 done
+
+
 
 shift "$(($OPTIND -1))"
 
