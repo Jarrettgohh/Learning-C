@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-// *sign extension* happens when a lower integer conversion rank data type compared to int or unsigned int (such as signed char) is promoted to an object of type signed int
+// *sign extension* is used to convert a signed value to a larger-width object
+// -> such a when a lower integer conversion rank data type compared to int or unsigned int (such as signed char) is promoted to an object of type signed int
 // -> it is used to convert a signed value to a larger-width object
 // -> the sign bit is copied into each position of the expanded object
 //

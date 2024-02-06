@@ -46,12 +46,9 @@ void abs_overflow()
 int main()
 {
 
- example();
- // abs_no_overflow();
- // abs_overflow();
-
- // signed int a = INT_MIN;
- // unsigned int b = -1;
+ // example();
+ abs_no_overflow();
+ abs_overflow();
 
  return 0;
 }

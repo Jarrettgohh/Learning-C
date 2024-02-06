@@ -5,6 +5,7 @@
 -> in order to sign extend, the representation have to be in binary format 
 -> eg. 0xAA the sign extended format is 0xFFFFFAA - notice that its not extending the 'A' throughout the length, but rather the bit representation of 0xA (*1*010); the bit 1 surrounded by asterisk is the one extended 
 -> hence 1111 -> 0xF throughout
+** can only be used to convert signed value 
 
 
 >> The reason why 0xAA and 0xFFFFFFAA both evaluates to the same signed 2's complement value (-86) is because in their binary format, the same formula of (2^(N-1)) + (2^(N-1) - 1) applies no matter the value of N
