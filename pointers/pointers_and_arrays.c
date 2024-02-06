@@ -3,8 +3,8 @@
 //
 // ** the name of an array is actually a pointer to the first element of the array
 //
-// ==> arr + i == &arr[i]
-// ==> *(arr + i) === arr[i] - add indirection (*) opearator to both sides
+// ==> arr + i = &arr[i]
+// ==> *(arr + i) = arr[i] (*&arr[i]) - add indirection (*) opearator to both sides
 
 void int_arr()
 {
