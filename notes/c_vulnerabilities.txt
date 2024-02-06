@@ -1,0 +1,9 @@
+1. string buffer overflow
+>> strcpy, strcat, gets
+
+2. signed integer overflow
+>> leads to unexpected too large positive or small negative values 
+-> can cause issues when the value is used in loops, memory allocation, etc.
+
+
+3. Out of bounds array read and write

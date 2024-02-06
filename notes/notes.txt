@@ -4,3 +4,6 @@ GENERAL C LANGUAGE NOTES
 1. Data types gets converted to `int` naturally (?)
 -> char type will be stored as its ASCII equivalent
 
+
+2. 
+

@@ -1,0 +1,53 @@
+************************************************
+EXPERIMENTED BEHAVIOR OF SIGNED INTEGER overflow (different from unsigned integer wraparound)
+************************************************
+>> according to the C standard, the behavior is undefined, unlike the unsigned integer wraparound where if its negative, the value wraps to the UINT_MAX, while if it exceeds the max range, the value wraps to 0
+
+>> the behavior of signed integer overflow makes use of signed 2's complement, that might not be implemented in all architectures, hence is undefined (?)
+
+************* MIGHT NOT APPLY FOR ALL IMPLEMENTATIONS OR VALUE (just experimented value but not confirmed!!)***************************************************************
+*larger than signed integer range*
+=> f = v - (abs(v/(2^N)) * 2^N)
+
+Where 
+f = converted signed value
+v = supplied value
+N = number of bits in the data type
+
+******************************
+>> behavior seems like that the signed integer would overflow and convert to a smaller value 
+
+
+
+=======================
+EXAMPLE 1
+=======================
+signed int x = 4294967295; // hex for supplied value: 0xFFFFFFFF (signed: -1)
+
+>> The hex representation for the supplied decimal value is 0xFFFFFFFF, this value is higher than the signed integer range (as the sign bit is negative)
+>> when stored into the signed integer data type, the signed 2's complement will be -1
+
+
+=======================
+EXAMPLE 2
+=======================
+signed int m = 4294967296 (INT_MAX + 1); // supplied decimal value higher than 0xFFFFFFFF (2^32 -1)
+
+higher decimal value than binary value: 1111 1111 1111 1111 1111 1111 1111 1111 (0xFFFFFFFF) gets converted to
+=> 0x00000000 binary: 0000 0000 0000 0000 0000 0000 0000 0000
+
+>> signed 2's complement value: 0
+
+
+=======================
+EXAMPLE 3
+=======================
+signed int m = -2147483649 (INT_MIN - 1); 
+
+lower decimal value than binary: 1000 0000 0000 0000 0000 0000 0000 0000 (0x80000000)
+=> converted to 0x7FFFFFFF binary: 0111 1111 1111 1111 1111 1111 1111 1111
+
+>> signed 2's complement value: 2147483647
+
+
+

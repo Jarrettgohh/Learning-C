@@ -43,12 +43,35 @@ void abs_overflow()
  printf("%d\n", abs_a);
 }
 
+void example_2()
+{
+
+ signed int i = 2147483647;  // hex for supplied value: 0x7FFFFFFF (signed output: 2147483647)
+ signed int x = 4294967295;  // hex for supplied value (2^32 - 1): 0xFFFFFFFF (signed output: -1)
+ signed int b = -2147483648; // hex for supplied value: 0x80000000 (signed output: -2147483648)
+ signed int y = 4294967294;  // hex for supplied value: 0xFFFFFFFE (signed output: -2)
+
+ // // supplied value (2^32 + 10 = 4294967296 + 10), supplied decimal value higher than 0xFFFFFFFF (signed output: 10)
+ // signed int m = 4294967296 + 10;
+
+ // // supplied value (-2^31 - 1 = -2147483648 - 1), signed output: 2147483647
+ // signed int l = -2147483648 - 1;
+
+ printf("%d\n", i);
+ printf("%d\n", x);
+ printf("%d\n", b);
+ printf("%d\n", y);
+ // printf("%d\n", m);
+ // printf("%d\n", l);
+}
+
 int main()
 {
 
  // example();
- abs_no_overflow();
- abs_overflow();
+ // abs_no_overflow();
+ // abs_overflow();
+ example_2();
 
  return 0;
 }

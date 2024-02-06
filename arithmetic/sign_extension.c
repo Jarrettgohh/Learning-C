@@ -11,6 +11,10 @@ void example_1()
 {
  printf("\n--------------------- %s ----------------------\n", "declaration as signed char - sign extended from char to int");
 
+ //
+ // ** max signed char range = 2^7 -1 = 127
+ //
+
  // binary: 1111 1111, hex: 0xFF in memory
  signed char x = 255;
  // binary: 0100 0000, hex: 0x40 in memory
@@ -19,6 +23,7 @@ void example_1()
  signed char z = 239;
 
  printf("%s\n", "x:");
+ printf("signed char: %hhi\n", x);
  printf("signed int: %d\n", x);
  printf("unsigned int: %u\n", x);
  printf("%lu bits\n\n", sizeof(x) * 8);
@@ -26,6 +31,7 @@ void example_1()
  printf("%s", "\n");
 
  printf("%s\n", "y:");
+ printf("signed char: %hhi\n", y);
  printf("signed int: %d\n", y);
  printf("unsigned int: %u\n", y);
  printf("%lu bits\n\n", sizeof(y) * 8);
@@ -33,14 +39,15 @@ void example_1()
  printf("%s", "\n");
 
  printf("%s\n", "z:");
+ printf("signed char: %hhi\n", z);
  printf("signed int: %d\n", z);
  printf("unsigned int: %u\n", z);
  printf("%lu bits\n\n", sizeof(z) * 8);
 
  printf("\n\n\n--------------------- %s ---------------------- \n", "declaration as signed int");
  signed int a = 255; // binary: 1111 1111 in memory (with extra 32-8=24 extra 0's bits preceding) as signed int has 32 bits
- signed int b = 64;  // binary: 0100 0000 in memory (with extra 32-8=24 extra 0's bits preceding) as signed int has 32 bits
- signed int c = 239; // binary: 1111 1110 in memory (with extra 32-8=24 extra 0's bits preceding) as signed int has 32 bits
+ signed int b = 64;  // binary: 0100 0000 (0x00000040) in memory (with extra 32-8=24 extra 0's bits preceding) as signed int has 32 bits
+ signed int c = 239; // binary: 1110 1111 (0xFFFFFFEF) in memory (with extra 32-8=24 extra 0's bits preceding) as signed int has 32 bits
 
  printf("%s\n", "a:");
  printf("signed int: %d\n", a);

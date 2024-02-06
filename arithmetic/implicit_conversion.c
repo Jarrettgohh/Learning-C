@@ -3,21 +3,26 @@
 
 void sign_extension_example_1()
 {
- unsigned int ui = UINT_MAX; // 32 bits -> -1 (0xFFFFFFFF) (-2^31 + (2^31 -1))
+ unsigned int ui = UINT_MAX; // 32 bits -> -1 (0xFFFFFFFF)
  signed int si = -1;
  signed char nc = -1; // 1111 11111 (0xFF); 8 bits -> -2^8 + (2^8 - 1)
- signed char c = 255; // 1111 11111 (0xFF); 8 bits -> 2^8 -1
+ signed char c = 255; // 1111 11111 (0xFF)
 
- // unsigned ui converted to signed
- if (c == ui && nc == ui)
+ // signed si, nc and c converted to unsigned int to be same signedness as ui
+ if (c == ui && nc == ui && si == ui)
  {
   puts("signed -1 and 255 equals unsigned 4,294,967,295");
  }
 
- printf("%u\n", ui);
- printf("%u\n", c); // originally a signed variable that is not able to store negative values, hence the wraparound
- printf("%u\n", nc);
- printf("%u\n", si); // originally a signed variable that is not able to store negative values, hence the wraparound
+ printf("unsigned ui: %u\n", ui);
+ printf("unsigned c: %u\n", c);
+ printf("unsigned nc: %u\n", nc);
+ printf("unsigned si: %u\n", si);
+
+ printf("signed ui: %d\n", ui);
+ printf("signed c: %d\n", c);
+ printf("signed nc: %d\n", nc);
+ printf("signed si: %d\n", si);
 }
 
 void sign_extension_example_2()
@@ -62,8 +67,8 @@ int main()
 {
 
  sign_extension_example_1();
- sign_extension_example_2();
- unsigned_wraparound();
+ // sign_extension_example_2();
+ // unsigned_wraparound();
 
  return 0;
 }
