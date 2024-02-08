@@ -46,9 +46,9 @@ void abs_overflow()
 void example_2()
 {
 
- signed int i = 2147483647;  // hex for supplied value: 0x7FFFFFFF (signed output: 2147483647)
+ signed int i = 2147483647;  // hex for supplied value: 0x7FFFFFFF (signed output: 2147483647 no overflow as its the INT_MAX value)
  signed int x = 4294967295;  // hex for supplied value (2^32 - 1): 0xFFFFFFFF (signed output: -1)
- signed int b = -2147483648; // hex for supplied value: 0x80000000 (signed output: -2147483648)
+ signed int b = -2147483648; // hex for supplied value: 0x80000000 (signed output: -2147483648 no overflow as its the INT_MIN value)
  signed int y = 4294967294;  // hex for supplied value: 0xFFFFFFFE (signed output: -2)
 
  // // supplied value (2^32 + 10 = 4294967296 + 10), supplied decimal value higher than 0xFFFFFFFF (signed output: 10)

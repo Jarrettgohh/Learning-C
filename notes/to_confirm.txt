@@ -1,0 +1,31 @@
+1. void char_arr(char (*arr_ptr)[10]); is this declaration valid?
+
+>> function declaration which takes pointer to array of char
+-> right way:
+```
+void char_arr(char *arr_ptr);
+
+
+
+```
+
+=====================
+from pointers_3.c
+=====================
+
+
+
+void test_2(int (*ptr)[6])
+{
+ printf("%i\n", *ptr[2]);
+}
+
+
+ int arr[6] = {1, 2, 3, 4, 5};
+ int(*ptr)[6] = &arr;
+
+ test_2(ptr);
+
+```
+
+```

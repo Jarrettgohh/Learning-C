@@ -1,0 +1,39 @@
+=========================
+IMPORTANT C LANGUAGE NOTES
+=========================
+1. Integer conversion rank
+
+>> general rank (from highest to lowest):
+1) long long int
+2) long int
+3) int  
+4) short int
+5) char, signed char, unsigned char (all signedness char have the same rank)
+6) _Bool
+
+
+>> rank of unsigned integer type equals the rank of the corresponding signed integer type
+
+
+>> for more in-depth info, refer to effective c book: page 50
+
+
+2. Integer promotions 
+
+>> Smaller data types with a lower conversion rank thank `int` or `unsigned int` gets promoted to `int` or `unsigned int` 
+ 
+>> effective c book: page 51 
+
+3. Usual arithmetic conversions
+
+>> If there is a floating-point type as one of the operand, the following conversion ranks follow:
+
+1) long double
+2) double
+3) float
+
+>> if an unsigned integer type operand has greater or equal rank to the rank of the other operand's type, the operand with the signed integer type is converted to operand of the unsigned integer type - such  between unsigned and signed integer, the signed is converted to unsigned int
+
+>> if the type of the operand with signed integer type can represent all of the values of the type of the operand with unsigned integer type, then the operand with unsigned integer type will be converted to the type of the operand with signed integer type - such as between unsigned int and signed long int, the unsigned int will be converted to the signed long long int (as long as the signed long long int type can represent all the values of the unsigned int type)
+
+>> effective c book: page 52

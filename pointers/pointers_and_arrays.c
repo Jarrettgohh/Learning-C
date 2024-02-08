@@ -76,6 +76,7 @@ void int_matrix()
 
 int main(void)
 {
+
  // int_arr();
  char_arr();
  // int_matrix();
