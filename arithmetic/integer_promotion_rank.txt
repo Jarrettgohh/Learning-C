@@ -1,6 +1,15 @@
 =========================
 IMPORTANT C LANGUAGE NOTES
 =========================
+
+
+******************************
+INTEGER PROMOTIONS
+******************************
+- a small type is an integer with lower conversion rank than unsigned or signed int
+- integer promotion is the process of converting a small type to type unsigned or signed int 
+
+
 1. Integer conversion rank
 
 >> general rank (from highest to lowest):

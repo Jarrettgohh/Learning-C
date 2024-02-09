@@ -1,25 +1,32 @@
 #include <stdio.h>
 
-void char_matrix(char (*matrix)[4])
+void int_matrix(int (*matrix)[4])
 {
 
- // char *arr = *arr_ptr; // *&&arr[0]
- // printf("%c\n", **arr_ptr);
+ int *arr = *matrix; // *&matrix[0] dereference the pointer to the first array element of the matrix - C converts the array to a pointer to the first element of the array (int)
+ int v = arr[3];
 
- for (unsigned i = 0; i < 4; ++i)
+ printf("%d\n", v);
+
+ for (unsigned i = 0; i < 2; ++i)
  {
+  for (unsigned x = 0; x < 4; ++x)
+  {
+   int val = matrix[i][x];
 
-  char val[4] = matrix[i];
+   printf("%d\n", val);
+  }
 
-  // printf("%c\n", *matrix[i]); //
+  printf("%s\n", "\n");
  }
 }
 
 // arg takes in pointer to first arg of an array - referring to the array itself
-void char_arr(char *arr)
+void int_arr(int *arr)
 {
 
- printf("%c\n", *arr); // *arr = *&arr[0] simply prints first element of array
+ printf("%d\n", *arr);       // *arr = *&arr[0] simply prints first element of array
+ printf("%d\n", *(arr + 1)); // prints second element of the array
 
  for (unsigned i = 0; i < 4; ++i)
  {
@@ -29,13 +36,14 @@ void char_arr(char *arr)
 
 int main()
 {
- char arr[6] = {'1', '2', '3', '4'};
- char matrix[4][4] = {{'1', '2', '3', '4'}, {'2', '2', '3', '4'}};
+ int arr[6] = {9, 2, 3, 4};
+ int matrix[2][4] = {{1, 10, 5, 6}, {2, 2, 3, 4}};
 
- // char_arr(arr);
+ // int *arr_ptr = &arr[0];
+ // int_arr(arr_ptr);
 
- char(*ptr)[4] = &matrix[0];
- char_matrix(ptr);
+ int(*matrix_ptr)[4] = &matrix[0]; // creating pointer to first element in matrix - first element is basically an array of length 4
+ int_matrix(matrix);
 
  return 0;
 }

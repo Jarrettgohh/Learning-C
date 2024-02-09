@@ -55,8 +55,9 @@ int main()
  int b = 12; // 1100
 
  int vals[2][2] = {{a, b}}; // {{8, 12}}
- int(*ptr)[] = &vals[0];
- int(*ptr_matrix)[2][2] = &vals;
+
+ int(*ptr)[] = &vals[0];        // using pointers
+ int(*ptr_matrix)[][2] = &vals; // using pointers too - but seems pretty irrelevant
 
  bitwise_and(ptr);         // same as bitwise_and(vals);
  bitwise_xor(*ptr_matrix); // same as bitwise_xor(vals);
