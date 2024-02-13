@@ -6,3 +6,5 @@
 
 3. Associativity when prefix ++ or -- is used with pointer
 -> effective C book page 63
+
+4. Memory alignment (_Alignas(), etc.)

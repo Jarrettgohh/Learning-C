@@ -1,5 +1,6 @@
 1. string buffer overflow
 >> strcpy, strcat, gets
+>> null terminator
 
 2. signed integer overflow
 >> leads to unexpected too large positive or small negative values 
@@ -7,3 +8,4 @@
 
 
 3. Out of bounds array read and write
+
