@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//
+// ** the malloc function is used to allocate space for an object of a specified size whose initial value is indeterminate
+//
+
 typedef struct
 {
  int i;
@@ -25,6 +29,7 @@ widget *widget_struct_malloc()
  if (ptr == NULL)
  {
   // Handle allocation error
+  return 1;
  }
 
  return ptr;
