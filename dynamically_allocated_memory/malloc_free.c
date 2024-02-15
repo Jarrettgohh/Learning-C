@@ -1,14 +1,17 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void malloc_free()
 {
 
  unsigned *ptr = NULL;
- // printf("%d\n", *(signed *)ptr);
+ // printf("%d\n", *(signed *)ptr); // segmentation fault: de-referencing NULL pointer
 
  ptr = malloc(sizeof(unsigned));
  *ptr = 22;
- // free(ptr);
+
+ free(ptr);
+
  printf("%u\n", *ptr);
 }
 

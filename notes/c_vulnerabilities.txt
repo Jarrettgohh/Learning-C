@@ -10,5 +10,5 @@
 
 3. Out of bounds array read and write
 
-
+4. double-free vulnerability
 
