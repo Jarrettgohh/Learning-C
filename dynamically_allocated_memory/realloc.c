@@ -54,10 +54,12 @@ void realloc_fail_memory_leak()
  // re-allocation of memory would fail; assuming that 18 GB (18 * 10^9 bytes) exceeds the maximum allowed memory space
  size += (unsigned long long)(18 * (pow(10, 9)));
 
+ printf("Memory address referenced by p: %p\n", p);
+
  //  assigning the old pointer to another pointer - for testing purpose to check if the free() function works
  void *p2 = p;
 
- p = realloc(p, size);
+ printf("Memory address referenced by p2 (as assigned from p): %p\n\n", p);
 
  // re-allocate pointer to the same variable name
  if ((p = realloc(p, size)) == NULL)
@@ -67,7 +69,7 @@ void realloc_fail_memory_leak()
  }
 
  // value referenced by the old memory address is not de-allocated
- printf("Value referenced by the old memory address: %d (not de-allocated)\n", *(unsigned *)p2);
+ printf("Value referenced by the old memory address p: %d (not de-allocated - stored in p2 for testing purposes)\n", *(unsigned *)p2);
 
  printf("%u\n", *(unsigned *)p); // causes a segmentation fault due to the de-referencing of a NULL pointer variable `p`
 }
@@ -148,9 +150,9 @@ void realloc_succeed()
 int main()
 {
 
- // realloc_fail_memory_leak();
+ realloc_fail_memory_leak();
  // realloc_fail_proper_free_memory();
- realloc_succeed();
+ // realloc_succeed();
 
  return 0;
 }

@@ -10,5 +10,13 @@
 
 3. Out of bounds array read and write
 
-4. double-free vulnerability
+4. Dynamic allocated memory based vulnerabilities/issues
+>> common issues
+-> accessing NULL pointer (segmentation fault)
+-> accessing freed pointer
+
+>> vulnerabilities
+-> double-free
+-> memory leaks; not clearing memory stored in pointer address that is converted to NULL (refer to realloc.c)
+-> reading unitialized memory
 
