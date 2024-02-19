@@ -17,6 +17,6 @@
 
 >> vulnerabilities
 -> double-free
--> memory leaks; not clearing memory stored in pointer address that is converted to NULL (refer to realloc.c)
+-> memory leaks; not clearing memory stored in pointer address that is aleady converted to NULL due to failed call to realloc() function (refer to realloc.c)
 -> reading unitialized memory
 
