@@ -35,7 +35,7 @@ void memory_storage()
 void proper_null_termination_example()
 {
 
- unsigned malloc_size = 16;
+ unsigned malloc_size = 20;
  char *str = (char *)malloc(malloc_size);
 
  // for testing purposes - to simulate the memory being filled with random characters besides the null character
@@ -48,7 +48,14 @@ void proper_null_termination_example()
  {
 
   strncpy(str, "123456789abcdef", 15);
-  str[15] = '\0'; // explicitly null-terminate
+
+  //
+  // refer to "strings/null_byte.c" for more info
+  //
+  // str[15] = '\0'; // explicitly null-terminate (escaped octal representation)
+  str[15] = 0x0; // works with hex representation of null character too
+  // str[15] = '\x0'; // works with escaped hex representation of null character too
+  // str[15] = 00; // works with octal represantation of null character too
 
   printf("str = %s\n", str);
   printf("%lu\n", strlen(str));
@@ -150,10 +157,10 @@ int main()
 {
 
  // comparison();
- memory_storage();
+ // memory_storage();
  printf("\n");
 
- // proper_null_termination_example();
+ proper_null_termination_example();
 
  // wrong_null_termination_example1();
  // wrong_null_termination_example2();
