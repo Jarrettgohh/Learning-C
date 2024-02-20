@@ -11,7 +11,7 @@ void null_byte(char null_b)
 
  char str[20] = "jarrett goh";
 
- size_t sizeof_str = sizeof str;
+ size_t sizeof_str = sizeof str + 1;
 
  char *dest = (char *)malloc(sizeof_str);
 
