@@ -11,8 +11,13 @@ void sign_extension_example_1()
  // signed si, nc and c converted to unsigned int to be same signedness as ui
  if (c == ui && nc == ui && si == ui)
  {
-  puts("signed -1 and 255 equals unsigned 4,294,967,295");
+  puts("signed char -1 and 255 and signed int -1 equals unsigned 4,294,967,295");
  }
+
+ if (si == nc && si == c && nc == c)
+ {
+  puts("these are equal too!");
+ };
 
  printf("unsigned ui: %u\n", ui);
  printf("unsigned c: %u\n", c);

@@ -23,7 +23,7 @@ void example_1()
  signed char z = 239;
 
  printf("%s\n", "x:");
- printf("signed char: %hhi\n", x);
+ printf("signed char: %hhi\n", x); // %hhi is signed char for numerical output
  printf("signed int: %d\n", x);
  printf("unsigned int: %u\n", x);
  printf("%lu bits\n\n", sizeof(x) * 8);

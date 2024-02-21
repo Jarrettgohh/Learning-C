@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define ARRAY_SIZE 20 // macro definition
+
 //
 // The null byte character (%00 in URL, 0x00 in hex, '\0' in C) also called null terminator, null character, is used in C/C++ to indicate the end of a string
 //
@@ -9,7 +11,7 @@
 void null_byte(char null_b)
 {
 
- char str[20] = "jarrett goh";
+ char str[ARRAY_SIZE] = "jarrett goh";
 
  size_t sizeof_str = sizeof str + 1;
 
