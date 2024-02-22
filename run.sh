@@ -4,10 +4,11 @@ file=""
 verbose=false
 std="c17"
 link_math_module=false
+implementation_files_to_link=""
 
 
 # the colon (:) operator in the getopts argument indicates that the flag takes in an argument
-while getopts 'f:vs:hm' OPTION; do
+while getopts 'f:vs:hml:' OPTION; do
   case "$OPTION" in
     f)
       file=$OPTARG
@@ -25,16 +26,20 @@ while getopts 'f:vs:hm' OPTION; do
       link_math_module=true
       ;;
 
+    l) 
+      implementation_files_to_link=$OPTARG
+      ;;
     h)
       printf "\n [-f] Name of C file to compile and execute (using gcc)"
       printf "\n [-v] Enable verbose"
       printf "\n [-s] Version of C standard"
       printf "\n [-m] Link with the <math.h> from the C standard library (using the -lm flag when invoking gcc)"
+      printf "\n [-l] Optional implementation (.c files) to link"
       printf "\n\n"
       exit
       ;;
     ?)
-      echo "script usage: "$0" -f ... -s ... -v ... (Run the file with the -h flag to view the help menu)]" >&2
+      echo "script usage: "$0" -f ... -s ... -v ... -m ... -l ...(Run the file with the -h flag to view the help menu)]" >&2
       exit 1
       ;;
   esac
@@ -59,6 +64,7 @@ printf "\n\n####################################################################
 
 fi
 
-gcc -std="$std" "$file" -o "$file_dir_exe_out" $([ "$link_math_module" == true ] && echo "-lm" || echo "") # using `gcc` command to compile .c file
+
+gcc -std="$std" "$file" -o "$file_dir_exe_out" $([ "$link_math_module" == true ] && echo "-lm" || echo "") $([ "$implementation_files_to_link" != "" ] && echo "$implementation_files_to_link" || echo "")   # using `gcc` command to compile .c file
 
 ./"$file_dir_exe_out" # executing .out file created by gcc (similar to .exe on windows - .out is created on linux)
